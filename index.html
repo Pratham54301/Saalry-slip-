@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Slip Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 Salary Slip Generator</h1>
+            <p>Create professional payslips with ease</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Input Form Section -->
+            <div class="form-section">
+                <h2>Enter Salary Details</h2>
+                <form id="salaryForm">
+                    <!-- Company Details -->
+                    <section class="form-group">
+                        <h3>Company Details</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" id="companyName" value="Shiv shakti Agro Industries" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="companyLogo">Company Logo (URL or Upload)</label>
+                                <input type="file" id="companyLogo" accept="image/*">
+                                <input type="text" id="companyLogoUrl" placeholder="Or enter image URL">
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <label for="companyAddress">Company Address *</label>
+                            <textarea id="companyAddress" rows="3" required>27/3/A ,LS No 1779a, B/S Ambika Petrol Pump, Kheda Bagodara Highway, Dholka, Ahmedabad-382225, Gujarat, India.</textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="payslipMonth">Payslip Month *</label>
+                                <input type="month" id="payslipMonth" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Employee Details -->
+                    <section class="form-group">
+                        <h3>Employee Details</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="employeeName">Employee Name *</label>
+                                <input type="text" id="employeeName" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="employeeId">Employee ID *</label>
+                                <input type="text" id="employeeId" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="payPeriod">Pay Period *</label>
+                                <input type="text" id="payPeriod" placeholder="e.g., 1st - 31st January 2024" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Attendance & Payment Details -->
+                    <section class="form-group">
+                        <h3>Attendance & Payment Details</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="totalPaidDays">Total Paid Days *</label>
+                                <input type="number" id="totalPaidDays" min="0" max="31" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="lopDays">Loss of Pay (LOP) Days *</label>
+                                <input type="number" id="lopDays" min="0" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="paymentDate">Payment Date *</label>
+                                <input type="date" id="paymentDate" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Earnings -->
+                    <section class="form-group">
+                        <h3>Earnings</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="basicSalary">Basic Salary *</label>
+                                <input type="number" id="basicSalary" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="hra">HRA (House Rent Allowance)</label>
+                                <input type="number" id="hra" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="allowances">Other Allowances</label>
+                                <input type="number" id="allowances" min="0" step="0.01" value="0">
+                            </div>
+                            <div class="form-field">
+                                <label for="specialAllowance">Special Allowance</label>
+                                <input type="number" id="specialAllowance" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Deductions -->
+                    <section class="form-group">
+                        <h3>Deductions</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="pf">Provident Fund (PF)</label>
+                                <input type="number" id="pf" min="0" step="0.01" value="0">
+                            </div>
+                            <div class="form-field">
+                                <label for="tax">Income Tax</label>
+                                <input type="number" id="tax" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="professionalTax">Professional Tax</label>
+                                <input type="number" id="professionalTax" min="0" step="0.01" value="0">
+                            </div>
+                            <div class="form-field">
+                                <label for="otherDeductions">Other Deductions</label>
+                                <input type="number" id="otherDeductions" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Signatures -->
+                    <section class="form-group">
+                        <h3>Signatures</h3>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="employerSignature">Employer/Founder Signature</label>
+                                <input type="file" id="employerSignature" accept="image/*">
+                                <input type="text" id="employerSignatureUrl" placeholder="Or enter image URL">
+                                <div class="signature-preview" id="employerSignaturePreview"></div>
+                            </div>
+                            <div class="form-field">
+                                <label for="employeeSignature">Employee Signature</label>
+                                <input type="file" id="employeeSignature" accept="image/*">
+                                <input type="text" id="employeeSignatureUrl" placeholder="Or enter image URL">
+                                <div class="signature-preview" id="employeeSignaturePreview"></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="button" id="previewBtn" class="btn btn-secondary">Preview Payslip</button>
+                        <button type="button" id="resetBtn" class="btn btn-secondary">Reset Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Payslip Preview Section -->
+            <div class="payslip-section">
+                <h2>Payslip Preview</h2>
+                <div id="payslipContainer" class="payslip-container">
+                    <div id="payslip" class="payslip">
+                        <!-- Payslip content will be generated here -->
+                        <div class="payslip-placeholder">
+                            <p>Fill in the form and click "Preview Payslip" to see your payslip here</p>
+                        </div>
+                    </div>
+                    <div class="payslip-actions" id="payslipActions" style="display: none;">
+                        <button type="button" id="printBtn" class="btn btn-primary">🖨️ Print & Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jsPDF and html2canvas libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
