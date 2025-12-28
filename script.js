@@ -482,7 +482,7 @@ async function downloadPDF() {
         console.error('Error generating PDF:', error);
         alert('Error generating PDF. Please try again.');
         const printBtn = document.getElementById('printBtn');
-        printBtn.innerHTML = '🖨️ Print & Download PDF';
+        printBtn.innerHTML = 'Print & Download PDF';
         printBtn.disabled = false;
     }
 }
